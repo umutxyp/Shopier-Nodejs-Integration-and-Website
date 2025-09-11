@@ -1,0 +1,61 @@
+{
+  "name": "shopier-nodejs-integration-and-website",
+  "version": "1.0.0",
+  "description": "Modern, professional e-commerce platform with Shopier payment integration. Optimized for digital products with dynamic product management, secure payment processing, and responsive design.",
+  "main": "index.js",
+  "author": {
+    "name": "Umut Bayraktar",
+    "email": "umut@codeshare.me",
+    "url": "https://codeshare.me",
+    "github": "umutxyp"
+  },
+  "contributors": [
+    {
+      "name": "Umut Bayraktar",
+      "email": "umut@codeshare.me",
+      "url": "https://codeshare.me"
+    }
+  ],
+  "homepage": "https://codeshare.me",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umutxyp/shopier-nodejs-integration-and-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/umutxyp/shopier-nodejs-integration-and-website/issues",
+    "email": "umut@codeshare.me"
+  },
+  "license": "MIT",
+  "keywords": [
+    "shopier",
+    "e-commerce",
+    "payment",
+    "integration",
+    "nodejs",
+    "express",
+    "digital-products",
+    "payment-gateway",
+    "ecommerce-platform",
+    "tailwind-css",
+    "responsive-design",
+    "api-integration",
+    "umut-bayraktar",
+    "codeshare"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "multer": "^2.0.2",
+    "qs": "^6.11.0",
+    "shopier-api": "^1.1.4"
+  }
+}

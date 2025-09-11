@@ -1,0 +1,55 @@
+{
+  "products": [
+    {
+      "id": "website-package",
+      "name": "Website Package",
+      "description": "Complete website with responsive design, SEO optimization and admin panel.",
+      "price": 250,
+      "currency": "TRY",
+      "icon": "fas fa-globe",
+      "features": [
+        "Responsive Design",
+        "SEO Optimization", 
+        "Admin Panel",
+        "1 Year Support"
+      ],
+      "rating": 5,
+      "category": "web",
+      "active": true
+    },
+    {
+      "id": "mobile-app",
+      "name": "Mobile Application",
+      "description": "Modern, user-friendly mobile app development for iOS and Android.",
+      "price": 1500,
+      "currency": "TRY",
+      "icon": "fas fa-mobile-alt",
+      "features": [
+        "iOS & Android",
+        "Native Performance",
+        "Push Notifications",
+        "2 Years Support"
+      ],
+      "rating": 5,
+      "category": "mobile",
+      "active": true
+    },
+    {
+      "id": "ecommerce-website",
+      "name": "E-Commerce Website",
+      "description": "Complete e-commerce solution with payment system, inventory management and reporting.",
+      "price": 850,
+      "currency": "TRY",
+      "icon": "fas fa-store",
+      "features": [
+        "Payment System",
+        "Inventory Management",
+        "Order Tracking",
+        "1.5 Years Support"
+      ],
+      "rating": 5,
+      "category": "ecommerce",
+      "active": true
+    }
+  ]
+}

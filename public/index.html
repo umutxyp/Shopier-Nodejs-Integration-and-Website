@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeShare Store - Premium Software Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .btn-primary:hover { background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%); }
+        .modal-backdrop { backdrop-filter: blur(10px); }
+        .loading { animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-code text-2xl"></i>
+                    <h1 class="text-2xl font-bold">CodeShare Store</h1>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-blue-200 transition-colors">Home</a>
+                    <a href="#products" class="hover:text-blue-200 transition-colors">Products</a>
+                    <a href="#contact" class="hover:text-blue-200 transition-colors">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                    <i class="fas fa-bars text-xl cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="fade-in">
+                <h2 class="text-5xl md:text-6xl font-bold mb-6">Premium Software Solutions</h2>
+                <p class="text-xl md:text-2xl mb-8 text-blue-100">Transform your business digitally with professional web development services</p>
+                <a href="#products" class="inline-block bg-white text-blue-600 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-shopping-cart mr-2"></i>Browse Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">Popular Products</h3>
+                <p class="text-xl text-gray-600">Software solutions to grow your business</p>
+            </div>
+            
+            <div id="products-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Products will be loaded dynamically -->
+                <div class="col-span-full text-center py-8">
+                    <i class="fas fa-spinner fa-spin text-4xl text-blue-500 mb-4"></i>
+                    <p class="text-gray-600">Loading products...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold mb-8">Get In Touch</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="fade-in">
+                    <i class="fas fa-envelope text-4xl mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Email</h4>
+                    <p class="text-blue-100" id="contact-email">Loading...</p>
+                </div>
+                <div class="fade-in">
+                    <i class="fas fa-phone text-4xl mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Phone</h4>
+                    <p class="text-blue-100" id="contact-phone">Loading...</p>
+                </div>
+                <div class="fade-in">
+                    <i class="fas fa-map-marker-alt text-4xl mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Address</h4>
+                    <p class="text-blue-100" id="contact-address">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all">
+            <div class="gradient-bg text-white p-6 rounded-t-xl">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold">Payment Information</h3>
+                    <button onclick="closePaymentModal()" class="text-white hover:text-gray-200">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <form id="paymentForm" action="/payment" method="POST" class="p-6 space-y-4">
+                <div id="productInfo" class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 id="productName" class="font-semibold text-gray-800"></h4>
+                    <p id="productPrice" class="text-2xl font-bold text-blue-600"></p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                        <input type="text" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                        <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <input type="tel" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your phone number">
+                </div>
+
+                <input type="hidden" name="productName" id="hiddenProductName">
+                <input type="hidden" name="amount" id="hiddenAmount">
+                <input type="hidden" name="productCode" id="hiddenProductCode">
+                
+                <button type="submit" class="w-full btn-primary text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300">
+                    <i class="fas fa-credit-card mr-2"></i>
+                    <span id="payButton">Proceed to Payment</span>
+                    <i id="loadingIcon" class="fas fa-spinner loading ml-2 hidden"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <i class="fas fa-code text-2xl"></i>
+                <span class="text-xl font-bold">CodeShare Store</span>
+            </div>
+            <p class="text-gray-400">&copy; 2025 CodeShare Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentProduct = {};
+
+        function openPaymentModal(name, price, code) {
+            currentProduct = { name, price, code };
+            document.getElementById('productName').textContent = name;
+            document.getElementById('productPrice').textContent = `${price.toLocaleString('en-US')} TRY`;
+            document.getElementById('hiddenProductName').value = name;
+            document.getElementById('hiddenAmount').value = price;
+            document.getElementById('hiddenProductCode').value = code;
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.add('flex');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('paymentModal').classList.remove('flex');
+            document.getElementById('paymentForm').reset();
+        }
+
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            // Form normal şekilde submit olsun, fetch kullanmayalım
+            const submitButton = document.getElementById('payButton');
+            const loadingIcon = document.getElementById('loadingIcon');
+            
+            submitButton.textContent = 'Processing...';
+            loadingIcon.classList.remove('hidden');
+            
+            // Form otomatik olarak /payment'e gönderilecek
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Load contact information from API
+        async function loadContactInfo() {
+            try {
+                const response = await fetch('/api/contact');
+                const contact = await response.json();
+                
+                document.getElementById('contact-email').textContent = contact.email;
+                document.getElementById('contact-phone').textContent = contact.phone;
+                document.getElementById('contact-address').textContent = contact.address;
+                
+                // Update email links
+                const emailLinks = document.querySelectorAll('a[href*="mailto"]');
+                emailLinks.forEach(link => {
+                    link.href = `mailto:${contact.email}`;
+                });
+                
+                // Update Discord links
+                const discordLinks = document.querySelectorAll('a[href*="discord"]');
+                discordLinks.forEach(link => {
+                    link.href = contact.discord;
+                });
+                
+            } catch (error) {
+                console.error('Error loading contact info:', error);
+                document.getElementById('contact-email').textContent = 'Email not available';
+                document.getElementById('contact-phone').textContent = 'Phone not available';
+                document.getElementById('contact-address').textContent = 'Address not available';
+            }
+        }
+
+        // Close modal on outside click
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePaymentModal();
+            }
+        });
+
+        // Entrance animations
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.animation = 'fadeIn 0.5s ease-in';
+                }
+            });
+        });
+
+        // Load products from API
+        async function loadProducts() {
+            try {
+                const response = await fetch('/api/products');
+                const data = await response.json();
+                
+                const container = document.getElementById('products-container');
+                container.innerHTML = '';
+                
+                if (data.products && data.products.length > 0) {
+                    data.products.forEach(product => {
+                        const productCard = createProductCard(product);
+                        container.appendChild(productCard);
+                    });
+                } else {
+                    container.innerHTML = `
+                        <div class="col-span-full text-center py-8">
+                            <i class="fas fa-box text-4xl text-gray-400 mb-4"></i>
+                            <p class="text-gray-600">No products available</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+                document.getElementById('products-container').innerHTML = `
+                    <div class="col-span-full text-center py-8">
+                        <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
+                        <p class="text-red-600">Error loading products</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Create product card HTML
+        function createProductCard(product) {
+            const div = document.createElement('div');
+            div.className = 'bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in';
+            
+            // Generate stars
+            const stars = Array(product.rating).fill('<i class="fas fa-star"></i>').join('');
+            
+            // Generate features list
+            const features = product.features.map(feature => 
+                `<li><i class="fas fa-check text-green-500 mr-2"></i>${feature}</li>`
+            ).join('');
+            
+            div.innerHTML = `
+                <div class="gradient-bg h-48 flex items-center justify-center">
+                    <i class="${product.icon} text-6xl text-white"></i>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">${product.name}</h4>
+                    <p class="text-gray-600 mb-4">${product.description}</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-3xl font-bold text-blue-600">$${product.price.toLocaleString()}</span>
+                        <div class="flex text-yellow-400">
+                            ${stars}
+                        </div>
+                    </div>
+                    <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                        ${features}
+                    </ul>
+                    <button onclick="openPaymentModal('${product.name}', ${product.price}, '${product.id}')" 
+                            class="w-full btn-primary text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300">
+                        <i class="fas fa-shopping-cart mr-2"></i>Buy Now
+                    </button>
+                </div>
+            `;
+            
+            return div;
+        }
+
+        // Load contact info when page loads
+        window.addEventListener('load', () => {
+            loadContactInfo();
+            loadProducts();
+        });
+    </script>
+</body>
+</html>

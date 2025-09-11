@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - CodeShare Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-red-50 to-orange-50 min-h-screen">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4">
+        <div class="max-w-lg w-full bg-white rounded-2xl shadow-2xl p-8 text-center relative overflow-hidden">
+            <!-- Background decoration -->
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-400 via-orange-500 to-red-600"></div>
+            
+            <!-- Error icon -->
+            <div class="mx-auto w-24 h-24 bg-gradient-to-r from-red-400 to-red-600 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-times text-4xl text-white"></i>
+            </div>
+            
+            <!-- Error message -->
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">❌ Payment Failed</h1>
+            <p class="text-lg text-gray-600 mb-8">Sorry, the payment process could not be completed.</p>
+            
+            <!-- Error details -->
+            <div class="bg-red-50 border border-red-200 rounded-xl p-6 mb-8">
+                <h3 class="text-lg font-semibold text-red-800 mb-4">⚠️ Possible Reasons</h3>
+                <ul class="text-sm text-red-700 space-y-2 text-left">
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle mr-3 mt-1 text-red-500"></i>
+                        <span>Your card information may be incorrect</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle mr-3 mt-1 text-red-500"></i>
+                        <span>Insufficient balance or credit limit</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle mr-3 mt-1 text-red-500"></i>
+                        <span>Transaction may have been declined by your bank</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle mr-3 mt-1 text-red-500"></i>
+                        <span>3D Secure verification failed</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle mr-3 mt-1 text-red-500"></i>
+                        <span>Temporary system error</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Solutions -->
+                        <!-- Solutions -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                <h3 class="text-lg font-semibold text-blue-800 mb-4">💡 What You Can Do</h3>
+                <div class="space-y-3 text-sm text-blue-700">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle mr-3 mt-1 text-blue-500"></i>
+                        <span>Try a different card or payment method</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle mr-3 mt-1 text-blue-500"></i>
+                        <span>Contact your bank</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle mr-3 mt-1 text-blue-500"></i>
+                        <span>Try again in a few minutes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action buttons -->
+            <div class="space-y-4">
+                <a href="/" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 inline-block">
+                    <i class="fas fa-redo mr-2"></i>Try Again
+                </a>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="mailto:{{CONTACT_EMAIL}}?subject=Payment%20Issue" 
+                       class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-xl font-semibold transition-colors duration-300 inline-block">
+                        <i class="fas fa-envelope mr-2"></i>Support
+                    </a>
+                    <a href="#" class="bg-green-100 hover:bg-green-200 text-green-700 px-4 py-3 rounded-xl font-semibold transition-colors duration-300 inline-block">
+                        <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contact info -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-sm text-gray-600 mb-4">
+                    <strong>For urgent support:</strong>
+                </p>
+                <div class="flex justify-center space-x-4 text-sm text-gray-500">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-1 text-blue-500"></i>
+                        <span>{{CONTACT_EMAIL}}</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone mr-1 text-green-500"></i>
+                        <span>{{CONTACT_PHONE}}</span>
+                    </div>
+                </div>
+            
+            <!-- Action buttons -->
+            <div class="space-y-4">
+                <a href="/" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 inline-block">
+                    <i class="fas fa-redo mr-2"></i>Tekrar Dene
+                </a>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="mailto:{{CONTACT_EMAIL}}?subject=Payment%20Issue" 
+                       class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-xl font-semibold transition-colors duration-300 inline-block">
+                        <i class="fas fa-envelope mr-2"></i>Support
+                    </a>
+                    <a href="#" class="bg-green-100 hover:bg-green-200 text-green-700 px-4 py-3 rounded-xl font-semibold transition-colors duration-300 inline-block">
+                        <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contact info -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-sm text-gray-600 mb-4">
+                    <strong>For urgent support:</strong>
+                </p>
+                <div class="flex justify-center space-x-4 text-sm text-gray-500">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-1 text-blue-500"></i>
+                        <span>{{CONTACT_EMAIL}}</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-discord mr-1 text-purple-500"></i>
+                        <span>Discord</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center pb-8">
+        <p class="text-gray-500 text-sm">
+            © 2025 CodeShare Store - Premium Software Solutions
+        </p>
+    </div>
+</body>
+</html>
