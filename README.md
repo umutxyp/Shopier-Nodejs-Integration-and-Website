@@ -437,7 +437,7 @@ copies or substantial portions of the Software.
 
 [![GitHub](https://img.shields.io/badge/GitHub-umutxyp-181717?style=for-the-badge&logo=github)](https://github.com/umutxyp)
 [![Website](https://img.shields.io/badge/Website-codeshare.me-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://codeshare.me)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@codeshare.me)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:umut@codeshare.me)
 
 **Full-Stack Developer | E-Commerce Specialist | Payment Integration Expert**
 
