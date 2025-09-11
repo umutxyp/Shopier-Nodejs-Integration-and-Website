@@ -10,8 +10,6 @@
 ![Shopier](https://img.shields.io/badge/Shopier-FF6B35?style=for-the-badge&logo=shopify&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-[Documentation](#-documentation) • [Features](#-features) • [Installation](#-installation)
-
 </div>
 
 ---
