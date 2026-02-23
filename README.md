@@ -1,4 +1,5 @@
 # 🛍️ Shopier E-Commerce Platform
+
 ### CodeShare Store - Professional Payment Integration
 
 <div align="center">
@@ -37,6 +38,7 @@
 ## 🌟 Features
 
 ### 💼 **Business Features**
+
 - ✅ **Digital Product Sales** - Optimized for software, apps, and digital services
 - ✅ **Dynamic Product Management** - JSON-based product catalog with CRUD operations
 - ✅ **Secure Payment Processing** - Full Shopier API integration
@@ -45,6 +47,7 @@
 - ✅ **Multi-language Support** - Full English implementation
 
 ### 🎨 **Design & UX**
+
 - ✅ **Modern UI/UX** - Clean, professional Tailwind CSS design
 - ✅ **Responsive Design** - Mobile-first approach, works on all devices
 - ✅ **Interactive Elements** - Smooth animations and transitions
@@ -52,6 +55,7 @@
 - ✅ **Error Handling** - Comprehensive error pages and messages
 
 ### 🔧 **Technical Features**
+
 - ✅ **RESTful API** - Clean API architecture
 - ✅ **Environment Configuration** - Secure environment variables
 - ✅ **Template Engine** - Mustache template rendering
@@ -87,6 +91,7 @@ open http://localhost:80
 ## ⚙️ Installation
 
 ### Prerequisites
+
 - **Node.js** (v14 or higher)
 - **npm** or **yarn**
 - **Shopier merchant account**
@@ -94,23 +99,27 @@ open http://localhost:80
 ### Step-by-Step Installation
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/umutxyp/shopier-nodejs-integration-and-website.git
    cd shopier-nodejs-integration-and-website
    ```
 
 2. **Install Dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Environment Setup**
+
    ```bash
    cp .env.example .env
    nano .env  # Configure your environment variables
    ```
 
 4. **Production Deployment**
+
    ```bash
    npm start
    ```
@@ -192,10 +201,10 @@ shopier-nodejs-integration-and-website/
 | `POST` | `/payment` | Process payment |
 | `POST` | `/callback` | Shopier payment callback |
 
-
 ### 📝 **API Examples**
 
 #### Get Products
+
 ```javascript
 fetch('/api/products')
   .then(response => response.json())
@@ -203,6 +212,7 @@ fetch('/api/products')
 ```
 
 #### Create Payment
+
 ```javascript
 const paymentData = {
   productName: 'Website Package',
@@ -265,6 +275,7 @@ fetch('/payment', {
 ### CSS Framework
 
 Built with **Tailwind CSS** for:
+
 - Rapid development
 - Consistent design system
 - Mobile-first approach
@@ -340,6 +351,7 @@ Built with **Tailwind CSS** for:
 ### Common Issues
 
 #### ❌ **Payment Not Processing**
+
 ```bash
 # Check Shopier credentials
 echo $SHOPIER_API_KEY
@@ -350,6 +362,7 @@ curl -X POST http://localhost:80/callback
 ```
 
 #### ❌ **Products Not Loading**
+
 ```bash
 # Check products.json file
 cat data/products.json
@@ -359,6 +372,7 @@ curl http://localhost:80/api/products
 ```
 
 #### ❌ **Environment Variables Not Loading**
+
 ```bash
 # Verify .env file exists
 ls -la .env
@@ -374,21 +388,25 @@ node -e "require('dotenv').config(); console.log(process.env.SHOPIER_API_KEY);"
 We welcome contributions! Please follow these steps:
 
 1. **Fork the Repository**
+
    ```bash
    git fork https://github.com/umutxyp/shopier-nodejs-integration-and-website.git
    ```
 
 2. **Create Feature Branch**
+
    ```bash
    git checkout -b feature/amazing-feature
    ```
 
 3. **Commit Changes**
+
    ```bash
    git commit -m 'Add amazing feature'
    ```
 
 4. **Push to Branch**
+
    ```bash
    git push origin feature/amazing-feature
    ```
@@ -442,6 +460,7 @@ copies or substantial portions of the Software.
 </div>
 
 ### 🛠️ **Expertise**
+
 - **Frontend**: React, Vue.js, Tailwind CSS, JavaScript ES6+
 - **Backend**: Node.js, Express.js, Python, PHP
 - **Payment Systems**: Shopier, Stripe, PayPal, İyzico
@@ -449,6 +468,7 @@ copies or substantial portions of the Software.
 - **Databases**: MongoDB, MySQL, PostgreSQL
 
 ### 🎯 **Services**
+
 - Custom E-Commerce Development
 - Payment Gateway Integration
 - API Development & Integration
